@@ -37,5 +37,5 @@ Click the image below to watch the project demonstration on YouTube:
 4. Select this project folder and click Finish.
 5. Build and Flash to your Nucleo board.
 
-👨‍💻 Author
-Muhammad Gulab, 3rd Year B.Tech (ECE), Jamia Millia Islamia, New Delhi
+👨‍💻 Author :- 
+Md Gulab, 3rd Year B.Tech (ECE), Jamia Millia Islamia, New Delhi
