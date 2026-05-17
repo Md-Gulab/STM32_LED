@@ -89,7 +89,7 @@ int main(){
  8000206:	b082      	sub	sp, #8
  8000208:	af00      	add	r7, sp, #0
 
-	// FIX 1: Use |= to enable peripheral clocks correctly
+	// enable peripheral clocks
 	RCC->AHB1ENR |= 0X00000001 ; // Enable GPIOA clock
  800020a:	4ba5      	ldr	r3, [pc, #660]	@ (80004a0 <main+0x29c>)
  800020c:	6b1b      	ldr	r3, [r3, #48]	@ 0x30
@@ -366,7 +366,7 @@ int main(){
  800040a:	4b27      	ldr	r3, [pc, #156]	@ (80004a8 <main+0x2a4>)
  800040c:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  8000410:	619a      	str	r2, [r3, #24]
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
  8000412:	4b25      	ldr	r3, [pc, #148]	@ (80004a8 <main+0x2a4>)
  8000414:	f44f 1280 	mov.w	r2, #1048576	@ 0x100000
  8000418:	619a      	str	r2, [r3, #24]
@@ -382,7 +382,7 @@ int main(){
  800042a:	4b1e      	ldr	r3, [pc, #120]	@ (80004a4 <main+0x2a0>)
  800042c:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  8000430:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  8000432:	4b1c      	ldr	r3, [pc, #112]	@ (80004a4 <main+0x2a0>)
  8000434:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  8000438:	619a      	str	r2, [r3, #24]
@@ -409,7 +409,7 @@ int main(){
  800045a:	4b12      	ldr	r3, [pc, #72]	@ (80004a4 <main+0x2a0>)
  800045c:	f44f 6280 	mov.w	r2, #1024	@ 0x400
  8000460:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
  8000462:	4b10      	ldr	r3, [pc, #64]	@ (80004a4 <main+0x2a0>)
  8000464:	2220      	movs	r2, #32
  8000466:	619a      	str	r2, [r3, #24]
@@ -432,14 +432,14 @@ int main(){
  8000486:	4b07      	ldr	r3, [pc, #28]	@ (80004a4 <main+0x2a0>)
  8000488:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  800048c:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  800048e:	4b05      	ldr	r3, [pc, #20]	@ (80004a4 <main+0x2a0>)
  8000490:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  8000494:	619a      	str	r2, [r3, #24]
 				delay(wait) ;
  8000496:	20fa      	movs	r0, #250	@ 0xfa
  8000498:	f000 f97a 	bl	8000790 <delay>
-				break ; // FIX 2: Added missing break statement
+				break ;
  800049c:	e16b      	b.n	8000776 <main+0x572>
  800049e:	bf00      	nop
  80004a0:	40023800 	.word	0x40023800
@@ -472,7 +472,7 @@ int main(){
  80004d2:	4b89      	ldr	r3, [pc, #548]	@ (80006f8 <main+0x4f4>)
  80004d4:	f44f 6280 	mov.w	r2, #1024	@ 0x400
  80004d8:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
  80004da:	4b87      	ldr	r3, [pc, #540]	@ (80006f8 <main+0x4f4>)
  80004dc:	2220      	movs	r2, #32
  80004de:	619a      	str	r2, [r3, #24]
@@ -487,7 +487,7 @@ int main(){
  80004ee:	4b83      	ldr	r3, [pc, #524]	@ (80006fc <main+0x4f8>)
  80004f0:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  80004f4:	619a      	str	r2, [r3, #24]
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
  80004f6:	4b81      	ldr	r3, [pc, #516]	@ (80006fc <main+0x4f8>)
  80004f8:	f44f 1280 	mov.w	r2, #1048576	@ 0x100000
  80004fc:	619a      	str	r2, [r3, #24]
@@ -503,7 +503,7 @@ int main(){
  800050e:	4b7a      	ldr	r3, [pc, #488]	@ (80006f8 <main+0x4f4>)
  8000510:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  8000514:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  8000516:	4b78      	ldr	r3, [pc, #480]	@ (80006f8 <main+0x4f4>)
  8000518:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  800051c:	619a      	str	r2, [r3, #24]
@@ -534,7 +534,7 @@ int main(){
  8000542:	4b6d      	ldr	r3, [pc, #436]	@ (80006f8 <main+0x4f4>)
  8000544:	f44f 6280 	mov.w	r2, #1024	@ 0x400
  8000548:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
  800054a:	4b6b      	ldr	r3, [pc, #428]	@ (80006f8 <main+0x4f4>)
  800054c:	2220      	movs	r2, #32
  800054e:	619a      	str	r2, [r3, #24]
@@ -549,7 +549,7 @@ int main(){
  800055e:	4b67      	ldr	r3, [pc, #412]	@ (80006fc <main+0x4f8>)
  8000560:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  8000564:	619a      	str	r2, [r3, #24]
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
  8000566:	4b65      	ldr	r3, [pc, #404]	@ (80006fc <main+0x4f8>)
  8000568:	f44f 1280 	mov.w	r2, #1048576	@ 0x100000
  800056c:	619a      	str	r2, [r3, #24]
@@ -561,7 +561,7 @@ int main(){
  8000576:	4b60      	ldr	r3, [pc, #384]	@ (80006f8 <main+0x4f4>)
  8000578:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  800057c:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  800057e:	4b5e      	ldr	r3, [pc, #376]	@ (80006f8 <main+0x4f4>)
  8000580:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  8000584:	619a      	str	r2, [r3, #24]
@@ -588,7 +588,7 @@ int main(){
  80005a4:	4b54      	ldr	r3, [pc, #336]	@ (80006f8 <main+0x4f4>)
  80005a6:	f44f 6280 	mov.w	r2, #1024	@ 0x400
  80005aa:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
  80005ac:	4b52      	ldr	r3, [pc, #328]	@ (80006f8 <main+0x4f4>)
  80005ae:	2220      	movs	r2, #32
  80005b0:	619a      	str	r2, [r3, #24]
@@ -611,7 +611,7 @@ int main(){
  80005d0:	4b49      	ldr	r3, [pc, #292]	@ (80006f8 <main+0x4f4>)
  80005d2:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  80005d6:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  80005d8:	4b47      	ldr	r3, [pc, #284]	@ (80006f8 <main+0x4f4>)
  80005da:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  80005de:	619a      	str	r2, [r3, #24]
@@ -642,7 +642,7 @@ int main(){
  8000606:	4b3c      	ldr	r3, [pc, #240]	@ (80006f8 <main+0x4f4>)
  8000608:	f44f 6280 	mov.w	r2, #1024	@ 0x400
  800060c:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
  800060e:	4b3a      	ldr	r3, [pc, #232]	@ (80006f8 <main+0x4f4>)
  8000610:	2220      	movs	r2, #32
  8000612:	619a      	str	r2, [r3, #24]
@@ -661,7 +661,7 @@ int main(){
  800062a:	4b34      	ldr	r3, [pc, #208]	@ (80006fc <main+0x4f8>)
  800062c:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  8000630:	619a      	str	r2, [r3, #24]
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
  8000632:	4b32      	ldr	r3, [pc, #200]	@ (80006fc <main+0x4f8>)
  8000634:	f44f 1280 	mov.w	r2, #1048576	@ 0x100000
  8000638:	619a      	str	r2, [r3, #24]
@@ -669,7 +669,7 @@ int main(){
  800063a:	4b2f      	ldr	r3, [pc, #188]	@ (80006f8 <main+0x4f4>)
  800063c:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  8000640:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  8000642:	4b2d      	ldr	r3, [pc, #180]	@ (80006f8 <main+0x4f4>)
  8000644:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  8000648:	619a      	str	r2, [r3, #24]
@@ -700,7 +700,7 @@ int main(){
  800066e:	4b22      	ldr	r3, [pc, #136]	@ (80006f8 <main+0x4f4>)
  8000670:	f44f 6280 	mov.w	r2, #1024	@ 0x400
  8000674:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
  8000676:	4b20      	ldr	r3, [pc, #128]	@ (80006f8 <main+0x4f4>)
  8000678:	2220      	movs	r2, #32
  800067a:	619a      	str	r2, [r3, #24]
@@ -715,7 +715,7 @@ int main(){
  800068a:	4b1b      	ldr	r3, [pc, #108]	@ (80006f8 <main+0x4f4>)
  800068c:	f04f 7280 	mov.w	r2, #16777216	@ 0x1000000
  8000690:	619a      	str	r2, [r3, #24]
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
  8000692:	4b1a      	ldr	r3, [pc, #104]	@ (80006fc <main+0x4f8>)
  8000694:	f44f 1280 	mov.w	r2, #1048576	@ 0x100000
  8000698:	619a      	str	r2, [r3, #24]
@@ -727,7 +727,7 @@ int main(){
  80006a2:	4b15      	ldr	r3, [pc, #84]	@ (80006f8 <main+0x4f4>)
  80006a4:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  80006a8:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  80006aa:	4b13      	ldr	r3, [pc, #76]	@ (80006f8 <main+0x4f4>)
  80006ac:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  80006b0:	619a      	str	r2, [r3, #24]
@@ -746,7 +746,7 @@ int main(){
  80006c2:	4b0e      	ldr	r3, [pc, #56]	@ (80006fc <main+0x4f8>)
  80006c4:	f44f 6280 	mov.w	r2, #1024	@ 0x400
  80006c8:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
  80006ca:	4b0b      	ldr	r3, [pc, #44]	@ (80006f8 <main+0x4f4>)
  80006cc:	2220      	movs	r2, #32
  80006ce:	619a      	str	r2, [r3, #24]
@@ -761,7 +761,7 @@ int main(){
  80006de:	4b07      	ldr	r3, [pc, #28]	@ (80006fc <main+0x4f8>)
  80006e0:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  80006e4:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  80006e6:	4b04      	ldr	r3, [pc, #16]	@ (80006f8 <main+0x4f4>)
  80006e8:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  80006ec:	619a      	str	r2, [r3, #24]
@@ -799,7 +799,7 @@ int main(){
  8000724:	4b19      	ldr	r3, [pc, #100]	@ (800078c <main+0x588>)
  8000726:	2208      	movs	r2, #8
  8000728:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
  800072a:	4b17      	ldr	r3, [pc, #92]	@ (8000788 <main+0x584>)
  800072c:	2220      	movs	r2, #32
  800072e:	619a      	str	r2, [r3, #24]
@@ -818,7 +818,7 @@ int main(){
  8000746:	4b11      	ldr	r3, [pc, #68]	@ (800078c <main+0x588>)
  8000748:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
  800074c:	619a      	str	r2, [r3, #24]
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
  800074e:	4b0f      	ldr	r3, [pc, #60]	@ (800078c <main+0x588>)
  8000750:	f44f 1280 	mov.w	r2, #1048576	@ 0x100000
  8000754:	619a      	str	r2, [r3, #24]
@@ -830,7 +830,7 @@ int main(){
  800075e:	4b0b      	ldr	r3, [pc, #44]	@ (800078c <main+0x588>)
  8000760:	f44f 2200 	mov.w	r2, #524288	@ 0x80000
  8000764:	619a      	str	r2, [r3, #24]
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
  8000766:	4b08      	ldr	r3, [pc, #32]	@ (8000788 <main+0x584>)
  8000768:	f44f 1200 	mov.w	r2, #2097152	@ 0x200000
  800076c:	619a      	str	r2, [r3, #24]

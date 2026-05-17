@@ -19,7 +19,7 @@ void delay( int n ) ;
 
 int main(){
 
-	// FIX 1: Use |= to enable peripheral clocks correctly
+	// enable peripheral clocks
 	RCC->AHB1ENR |= 0X00000001 ; // Enable GPIOA clock
 	RCC->AHB1ENR |= 0X00000002 ; // Enable GPIOB clock
 	RCC->AHB1ENR |= 0X00000004 ; // Enable GPIOC clock
@@ -90,11 +90,11 @@ int main(){
 				GPIOA->BSRR = (1 << (9 + 16));
 				GPIOA->BSRR = (1 << (8 + 16));
 				GPIOB->BSRR = (1 << (10 + 16));
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
 				GPIOB->BSRR = (1 << (5 + 16));
 				GPIOB->BSRR = (1 << (3 + 16));
 				GPIOA->BSRR = (1 << (10 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
 				break ;
 
@@ -103,15 +103,15 @@ int main(){
 				GPIOA->BSRR = (1 << 8);
 				GPIOB->BSRR = (1 << 10);
 				GPIOA->BSRR = (1 << 10);
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
 				delay(wait) ;
 				GPIOA->BSRR = (1 << (9 + 16));
 				GPIOA->BSRR = (1 << (8 + 16));
 				GPIOB->BSRR = (1 << (10 + 16));
 				GPIOA->BSRR = (1 << (10 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
-				break ; // FIX 2: Added missing break statement
+				break ;
 
 			case 3: // For displaying 6
 				GPIOA->BSRR = (1 << 9);
@@ -120,15 +120,15 @@ int main(){
 				GPIOB->BSRR = (1 << 5);
 				GPIOB->BSRR = (1 << 3);
 				GPIOA->BSRR = (1 << 10);
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
 				delay(wait) ;
 				GPIOA->BSRR = (1 << (9 + 16));
 				GPIOB->BSRR = (1 << (10 + 16));
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
 				GPIOB->BSRR = (1 << (5 + 16));
 				GPIOB->BSRR = (1 << (3 + 16));
 				GPIOA->BSRR = (1 << (10 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
 				break ;
 
@@ -138,14 +138,14 @@ int main(){
 				GPIOB->BSRR = (1 << 4);
 				GPIOB->BSRR = (1 << 3);
 				GPIOA->BSRR = (1 << 10);
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
 				delay(wait) ;
 				GPIOA->BSRR = (1 << (9 + 16));
 				GPIOB->BSRR = (1 << (10 + 16));
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
 				GPIOB->BSRR = (1 << (3 + 16));
 				GPIOA->BSRR = (1 << (10 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
 				break ;
 
@@ -154,13 +154,13 @@ int main(){
 				GPIOB->BSRR = (1 << 10);
 				GPIOB->BSRR = (1 << 3);
 				GPIOA->BSRR = (1 << 10);
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
 				delay(wait) ;
 				GPIOA->BSRR = (1 << (8 + 16));
 				GPIOB->BSRR = (1 << (10 + 16));
 				GPIOB->BSRR = (1 << (3 + 16));
 				GPIOA->BSRR = (1 << (10 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
 				break ;
 
@@ -170,14 +170,14 @@ int main(){
 				GPIOB->BSRR = (1 << 10);
 				GPIOB->BSRR = (1 << 4);
 				GPIOA->BSRR = (1 << 10);
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
 				delay(wait) ;
 				GPIOA->BSRR = (1 << (9 + 16));
 				GPIOA->BSRR = (1 << (8 + 16));
 				GPIOB->BSRR = (1 << (10 + 16));
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
 				GPIOA->BSRR = (1 << (10 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
 				break ;
 
@@ -187,25 +187,25 @@ int main(){
 				GPIOB->BSRR = (1 << 4);
 				GPIOB->BSRR = (1 << 5);
 				GPIOA->BSRR = (1 << 10);
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
 				delay(wait) ;
 				GPIOA->BSRR = (1 << (9 + 16));
 				GPIOA->BSRR = (1 << (8 + 16));
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
 				GPIOB->BSRR = (1 << (5 + 16));
 				GPIOA->BSRR = (1 << (10 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
 				break ;
 
 			case 8: // For displaying 1
 				GPIOA->BSRR = (1 << 8);
 				GPIOB->BSRR = (1 << 10);
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
 				delay(wait) ;
 				GPIOA->BSRR = (1 << (8 + 16));
 				GPIOB->BSRR = (1 << (10 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
 				break ;
 
@@ -216,15 +216,15 @@ int main(){
 				GPIOB->BSRR = (1 << 4);
 				GPIOB->BSRR = (1 << 5);
 				GPIOB->BSRR = (1 << 3);
-				GPIOA->BSRR = (1 << 5) ; // PA5 ON
+				GPIOA->BSRR = (1 << 5) ;
 				delay(wait) ;
 				GPIOA->BSRR = (1 << (9 + 16));
 				GPIOA->BSRR = (1 << (8 + 16));
 				GPIOB->BSRR = (1 << (10 + 16));
-				GPIOB->BSRR = (1 << (4 + 16)); // FIX 3
+				GPIOB->BSRR = (1 << (4 + 16));
 				GPIOB->BSRR = (1 << (5 + 16));
 				GPIOB->BSRR = (1 << (3 + 16));
-				GPIOA->BSRR = (1 << (5 + 16)) ;  // PA5 OFF
+				GPIOA->BSRR = (1 << (5 + 16)) ;
 				delay(wait) ;
 				break ;
 			}
