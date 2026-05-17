@@ -1,0 +1,10 @@
+# Ignore build folders
+Debug/
+Release/
+
+# Ignore IDE settings
+.settings/
+.metadata/
+
+# Ignore temporary CubeMX files
+.mxproject
